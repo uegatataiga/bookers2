@@ -1,0 +1,97 @@
+
+<html>
+  <head>
+    <title>Bookers2</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script src="https://kit.fontawesome.com/d1642612f4.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-secondary bg-dark">
+      <% if user_signed_in? %>
+
+      <a class="navbar-brand p-3 text-light" href="/"><span>Bookers</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+
+      <p><%= link_to user_path(current_user.id),class: 'nav-link text-light' do %>
+      <i class="fas fa-home" aria-hidden="true"></i>Home</p>
+      <% end %>
+
+      </li>
+
+      <li class="nav-item">
+      <p><%= link_to users_path,class: 'nav-link text-light' do %>
+      <i class="fas fa-users" aria-hidden="true"></i>Users</p>
+      <% end %>
+      </li>
+
+      <li class="nav-item">
+      <p><%= link_to books_path,class: 'nav-link text-light' do %>
+      <i class="fas fa-book-open" aria-hidden="true"></i>Books</p>
+      <% end %>
+      </li>
+
+      <li class="nav-item">
+      <p><%= link_to  destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
+       <i class="fas fa-sign-out-alt" aria-hidden="true"></i>Log out</p>
+      <% end %>
+      </li>
+      </ul>
+      </div>
+
+     <% else %>
+      <a class="navbar-brand p-3 text-light" href="/"><span>Bookers</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+      <a class="nav-link text-light" href="/">
+      <i class="fas fa-home" aria-hidden="true"></i>Home</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link text-light" href="/home/about">
+      <i class="fas fa-link" aria-hidden="true"></i>About</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link text-light" href="/users/sign_up">
+      <i class="fas fa-user-plus" aria-hidden="true"></i>Sign up</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link text-light" href="/users/sign_in">
+      <i class="fas fa-sign-in-alt" aria-hidden="true"></i>Log in</a>
+      </li>
+      <% end %>
+      </li>
+      </ul>
+      </div>
+
+     </nav>
+    </header>
+    <%= yield %>
+
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
+
+  </body>
+
+</html>
