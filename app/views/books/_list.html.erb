@@ -7,12 +7,12 @@
   <P>name : <%= user.name %></P>
   <p>introduction：<%= user.introduction %></p>
   <% if user == current_user %>
-    <p><%= link_to edit_user_path(user),class: "btn btn-outline-secondary btn-block" do %>
-    <i class="fas fa-user-cog" aria-hidden="true"></i></p>
+    <a><%= link_to edit_user_path(user),class: "btn btn-outline-secondary btn-block" do %>
+    <i class="fas fa-user-cog" aria-hidden="true"></i></a>
     <% end %>
   <% else %>
-    <p><%= link_to edit_user_path(user),class: "btn btn-outline-secondary btn-block" do %>
-    <i class="fas fa-user-cog" aria-hidden="true"></i></p>
+    <a><%= link_to edit_user_path(user),class: "btn btn-outline-secondary btn-block" do %>
+    <i class="fas fa-user-cog" aria-hidden="true"></i></a>
     <% end %>
   <% end %>
  </div>
