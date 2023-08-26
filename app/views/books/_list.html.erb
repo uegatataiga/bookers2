@@ -7,9 +7,7 @@
   <P>name : <%= user.name %></P>
   <p>introduction：<%= user.introduction %></p>
   <% if user == current_user %>
-
-
-    <P><%= link_to edit_user_path(user),class: "btn btn-outline-secondary btn-block" do %>
+    <p><%= link_to edit_user_path(user),class: "btn btn-outline-secondary btn-block" do %>
     <i class="fas fa-user-cog" aria-hidden="true"></i></p>
     <% end %>
   <% else %>
@@ -34,6 +32,6 @@
 
    <div class="text-submit"><%= f.submit 'Create Book', class: "btn btn-sm btn-success" %></div>
   <% end %>
-   </body>
+
 
 
